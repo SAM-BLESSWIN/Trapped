@@ -15,7 +15,6 @@ UGrabber::UGrabber()
 	PrimaryComponentTick.bCanEverTick = true;
 }
 
-
 // Called when the game starts
 void UGrabber::BeginPlay()
 {
@@ -25,32 +24,19 @@ void UGrabber::BeginPlay()
 }
 
 // Called every frame
+//attach the object to physics handle
 void UGrabber::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	FVector PlayerViewPointLocation;
-	FRotator PlayerViewPointRotation;
-
-	//Get Player viewpoint -position and direction
-	GetWorld()->GetFirstPlayerController()->GetPlayerViewPoint
-	(
-		OUT PlayerViewPointLocation,
-		OUT PlayerViewPointRotation
-	);
-
-	//Set length of raycast
-	FVector PlayerViewPointRotationVector=PlayerViewPointRotation.Vector();
-	FVector LineTraceEnd=PlayerViewPointLocation + (PlayerViewPointRotationVector * Reach);
-
 	if(PhysicsHandle->GetGrabbedComponent())
 	{
-		PhysicsHandle->SetTargetLocation(LineTraceEnd);
+		PhysicsHandle->SetTargetLocation(GetPlayerReach());
 	}
 	
 }
 
-
+//Check Physics Handle
 void UGrabber::FindPhysicsHandle()
 {
 	PhysicsHandle=GetOwner()->FindComponentByClass<UPhysicsHandleComponent>();
@@ -63,6 +49,7 @@ void UGrabber::FindPhysicsHandle()
 	
 }
 
+//Setting Inputs
 void UGrabber::SetUpInputComponent()
 {
 	Inputbind=GetOwner()->FindComponentByClass<UInputComponent>();
@@ -73,26 +60,11 @@ void UGrabber::SetUpInputComponent()
 	}
 }
 
+//get Grab object at reach position 
 void UGrabber::Grab()
 {
-	UE_LOG(LogTemp,Warning,TEXT("Grabbed"));
 	FHitResult Hitresult=GetGrabbableObject();
-
 	UPrimitiveComponent* Grabcomponent=Hitresult.GetComponent();
-
-	FVector PlayerViewPointLocation;
-	FRotator PlayerViewPointRotation;
-
-	//Get Player viewpoint -position and direction
-	GetWorld()->GetFirstPlayerController()->GetPlayerViewPoint
-	(
-		OUT PlayerViewPointLocation,
-		OUT PlayerViewPointRotation
-	);
-
-	//Set length of raycast
-	FVector PlayerViewPointRotationVector=PlayerViewPointRotation.Vector();
-	FVector LineTraceEnd=PlayerViewPointLocation + (PlayerViewPointRotationVector * Reach);
 
 	if(Hitresult.GetActor())
 	{
@@ -100,42 +72,29 @@ void UGrabber::Grab()
 		(
 			Grabcomponent,
 			NAME_None,
-			LineTraceEnd
+			GetPlayerReach()
 		);
 	}	
 }
 
+//Releasing an object
 void UGrabber::Release()
 {
-	UE_LOG(LogTemp,Warning,TEXT("Grab Released"));
 	if(PhysicsHandle->GetGrabbedComponent())
 	{
 		PhysicsHandle->ReleaseComponent();
 	}
 }
 
-FHitResult UGrabber::GetGrabbableObject()
+//RayCasting to point to grabable object
+FHitResult UGrabber::GetGrabbableObject() const
 {
-	FVector PlayerViewPointLocation;
-	FRotator PlayerViewPointRotation;
-
-	//Get Player viewpoint -position and direction
-	GetWorld()->GetFirstPlayerController()->GetPlayerViewPoint
-	(
-		OUT PlayerViewPointLocation,
-		OUT PlayerViewPointRotation
-	);
-
-	//Set length of raycast
-	FVector PlayerViewPointRotationVector=PlayerViewPointRotation.Vector();
-	FVector LineTraceEnd=PlayerViewPointLocation + (PlayerViewPointRotationVector * Reach);
-
 	//Draw a debug line to visualize where Player looks
 	DrawDebugLine
 	(
 		GetWorld(),
-		PlayerViewPointLocation,
-		LineTraceEnd,
+		GetPlayerPosition(),
+		GetPlayerReach(),
 		FColor(255,0,0),
 		false,
 		0.0f,
@@ -150,8 +109,8 @@ FHitResult UGrabber::GetGrabbableObject()
 	GetWorld()->LineTraceSingleByObjectType
 	(
 		Hit,
-		PlayerViewPointLocation,
-		LineTraceEnd,
+		GetPlayerPosition(),
+		GetPlayerReach(),
 		FCollisionObjectQueryParams(ECollisionChannel::ECC_PhysicsBody),
 		TraceParams
 	);
@@ -162,5 +121,38 @@ FHitResult UGrabber::GetGrabbableObject()
 	return Hit;
 }
 
+//Return LineTraceends
+FVector UGrabber::GetPlayerReach() const
+{
+	FVector PlayerViewPointLocation;
+	FRotator PlayerViewPointRotation;
 
+	//Get Player viewpoint -position and direction
+	GetWorld()->GetFirstPlayerController()->GetPlayerViewPoint
+	(
+		OUT PlayerViewPointLocation,
+		OUT PlayerViewPointRotation
+	);
 
+	//Set length of raycast
+	FVector PlayerViewPointRotationVector=PlayerViewPointRotation.Vector();
+	FVector LineTraceEnd=PlayerViewPointLocation + (PlayerViewPointRotationVector * Reach);
+
+	return LineTraceEnd;
+}
+
+//Retrun Player current position
+FVector UGrabber::GetPlayerPosition() const
+{
+	FVector PlayerViewPointLocation;
+	FRotator PlayerViewPointRotation;
+
+	//Get Player viewpoint -position and direction
+	GetWorld()->GetFirstPlayerController()->GetPlayerViewPoint
+	(
+		OUT PlayerViewPointLocation,
+		OUT PlayerViewPointRotation
+	);
+
+	return PlayerViewPointLocation;
+}

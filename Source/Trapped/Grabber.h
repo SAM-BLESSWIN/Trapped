@@ -37,5 +37,7 @@ private:
 	void Release();
 	void SetUpInputComponent();
 	void FindPhysicsHandle();
-	FHitResult GetGrabbableObject();
+	FHitResult GetGrabbableObject() const;
+	FVector GetPlayerReach() const;
+	FVector GetPlayerPosition() const;
 };
