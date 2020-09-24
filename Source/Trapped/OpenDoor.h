@@ -29,6 +29,7 @@ public:
 private:
 	void OpenDoor(float DeltaTime);
 	void CloseDoor(float DeltaTime);
+	float GetTotalMass();
 
 	float InitialYaw;
 	float CurrentYaw;
@@ -51,4 +52,7 @@ private:
 
 	UPROPERTY(EditAnywhere)
 	float DoorCloseSpeed=3.0f;	
+
+	UPROPERTY(EditAnywhere)
+	float DoorOpenMass=0.0f;
 };
