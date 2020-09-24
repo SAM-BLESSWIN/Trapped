@@ -1,0 +1,128 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Trapped (Debug)",
+			"request": "launch",
+			"preLaunchTask": "Trapped Win64 Debug Build",
+			"program": "D:\\lucifer games\\unreal\\Trapped\\Binaries\\Win64\\UE4-Win64-Debug.exe",
+			"args": [
+			],
+			"cwd": "D:\\program files\\UE_4.25",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "D:\\program files\\UE_4.25\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+		},
+		{
+			"name": "Trapped (DebugGame)",
+			"request": "launch",
+			"preLaunchTask": "Trapped Win64 DebugGame Build",
+			"program": "D:\\lucifer games\\unreal\\Trapped\\Binaries\\Win64\\UE4-Win64-DebugGame.exe",
+			"args": [
+			],
+			"cwd": "D:\\program files\\UE_4.25",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "D:\\program files\\UE_4.25\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+		},
+		{
+			"name": "Trapped (Development)",
+			"request": "launch",
+			"preLaunchTask": "Trapped Win64 Development Build",
+			"program": "D:\\lucifer games\\unreal\\Trapped\\Binaries\\Win64\\UE4.exe",
+			"args": [
+			],
+			"cwd": "D:\\program files\\UE_4.25",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "D:\\program files\\UE_4.25\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+		},
+		{
+			"name": "Trapped (Shipping)",
+			"request": "launch",
+			"preLaunchTask": "Trapped Win64 Shipping Build",
+			"program": "D:\\lucifer games\\unreal\\Trapped\\Binaries\\Win64\\UE4-Win64-Shipping.exe",
+			"args": [
+			],
+			"cwd": "D:\\program files\\UE_4.25",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "D:\\program files\\UE_4.25\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+		},
+		{
+			"name": "Trapped (Test)",
+			"request": "launch",
+			"preLaunchTask": "Trapped Win64 Test Build",
+			"program": "D:\\lucifer games\\unreal\\Trapped\\Binaries\\Win64\\UE4-Win64-Test.exe",
+			"args": [
+			],
+			"cwd": "D:\\program files\\UE_4.25",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "D:\\program files\\UE_4.25\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+		},
+		{
+			"name": "TrappedEditor (Debug)",
+			"request": "launch",
+			"preLaunchTask": "TrappedEditor Win64 Debug Build",
+			"program": "D:\\program files\\UE_4.25\\Engine\\Binaries\\Win64\\UE4Editor-Win64-Debug.exe",
+			"args": [
+				"D:\\lucifer games\\unreal\\Trapped\\Trapped.uproject"
+			],
+			"cwd": "D:\\program files\\UE_4.25",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "D:\\program files\\UE_4.25\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+		},
+		{
+			"name": "TrappedEditor (DebugGame)",
+			"request": "launch",
+			"preLaunchTask": "TrappedEditor Win64 DebugGame Build",
+			"program": "D:\\program files\\UE_4.25\\Engine\\Binaries\\Win64\\UE4Editor-Win64-DebugGame.exe",
+			"args": [
+				"D:\\lucifer games\\unreal\\Trapped\\Trapped.uproject"
+			],
+			"cwd": "D:\\program files\\UE_4.25",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "D:\\program files\\UE_4.25\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+		},
+		{
+			"name": "TrappedEditor (Development)",
+			"request": "launch",
+			"preLaunchTask": "TrappedEditor Win64 Development Build",
+			"program": "D:\\program files\\UE_4.25\\Engine\\Binaries\\Win64\\UE4Editor.exe",
+			"args": [
+				"D:\\lucifer games\\unreal\\Trapped\\Trapped.uproject"
+			],
+			"cwd": "D:\\program files\\UE_4.25",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "D:\\program files\\UE_4.25\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+		},
+		{
+			"name": "Generate Project Files",
+			"type": "clr",
+			"request": "launch",
+			"program": "D:\\program files\\UE_4.25\\Engine\\Binaries\\DotNET\\UnrealBuildTool.exe",
+			"console": "externalTerminal",
+			"args": [
+				"-projectfiles",
+				"-vscode",
+				"-project=\"D:\\lucifer games\\unreal\\Trapped\\Trapped.uproject\"",
+				"-game",
+				"-engine"
+			],
+			"internalConsoleOptions": "openOnSessionStart",
+			"cwd": "D:\\program files\\UE_4.25"
+		}
+	]
+}
