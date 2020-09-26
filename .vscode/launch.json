@@ -5,7 +5,7 @@
 			"name": "Trapped (Debug)",
 			"request": "launch",
 			"preLaunchTask": "Trapped Win64 Debug Build",
-			"program": "D:\\lucifer games\\unreal\\Trapped\\Binaries\\Win64\\UE4-Win64-Debug.exe",
+			"program": "D:\\lucifer games\\unreal_games\\Trapped\\Binaries\\Win64\\UE4-Win64-Debug.exe",
 			"args": [
 			],
 			"cwd": "D:\\program files\\UE_4.25",
@@ -18,7 +18,7 @@
 			"name": "Trapped (DebugGame)",
 			"request": "launch",
 			"preLaunchTask": "Trapped Win64 DebugGame Build",
-			"program": "D:\\lucifer games\\unreal\\Trapped\\Binaries\\Win64\\UE4-Win64-DebugGame.exe",
+			"program": "D:\\lucifer games\\unreal_games\\Trapped\\Binaries\\Win64\\UE4-Win64-DebugGame.exe",
 			"args": [
 			],
 			"cwd": "D:\\program files\\UE_4.25",
@@ -31,7 +31,7 @@
 			"name": "Trapped (Development)",
 			"request": "launch",
 			"preLaunchTask": "Trapped Win64 Development Build",
-			"program": "D:\\lucifer games\\unreal\\Trapped\\Binaries\\Win64\\UE4.exe",
+			"program": "D:\\lucifer games\\unreal_games\\Trapped\\Binaries\\Win64\\UE4.exe",
 			"args": [
 			],
 			"cwd": "D:\\program files\\UE_4.25",
@@ -44,7 +44,7 @@
 			"name": "Trapped (Shipping)",
 			"request": "launch",
 			"preLaunchTask": "Trapped Win64 Shipping Build",
-			"program": "D:\\lucifer games\\unreal\\Trapped\\Binaries\\Win64\\UE4-Win64-Shipping.exe",
+			"program": "D:\\lucifer games\\unreal_games\\Trapped\\Binaries\\Win64\\UE4-Win64-Shipping.exe",
 			"args": [
 			],
 			"cwd": "D:\\program files\\UE_4.25",
@@ -57,7 +57,7 @@
 			"name": "Trapped (Test)",
 			"request": "launch",
 			"preLaunchTask": "Trapped Win64 Test Build",
-			"program": "D:\\lucifer games\\unreal\\Trapped\\Binaries\\Win64\\UE4-Win64-Test.exe",
+			"program": "D:\\lucifer games\\unreal_games\\Trapped\\Binaries\\Win64\\UE4-Win64-Test.exe",
 			"args": [
 			],
 			"cwd": "D:\\program files\\UE_4.25",
@@ -72,7 +72,7 @@
 			"preLaunchTask": "TrappedEditor Win64 Debug Build",
 			"program": "D:\\program files\\UE_4.25\\Engine\\Binaries\\Win64\\UE4Editor-Win64-Debug.exe",
 			"args": [
-				"D:\\lucifer games\\unreal\\Trapped\\Trapped.uproject"
+				"D:\\lucifer games\\unreal_games\\Trapped\\Trapped.uproject"
 			],
 			"cwd": "D:\\program files\\UE_4.25",
 			"stopAtEntry": false,
@@ -86,7 +86,7 @@
 			"preLaunchTask": "TrappedEditor Win64 DebugGame Build",
 			"program": "D:\\program files\\UE_4.25\\Engine\\Binaries\\Win64\\UE4Editor-Win64-DebugGame.exe",
 			"args": [
-				"D:\\lucifer games\\unreal\\Trapped\\Trapped.uproject"
+				"D:\\lucifer games\\unreal_games\\Trapped\\Trapped.uproject"
 			],
 			"cwd": "D:\\program files\\UE_4.25",
 			"stopAtEntry": false,
@@ -100,7 +100,7 @@
 			"preLaunchTask": "TrappedEditor Win64 Development Build",
 			"program": "D:\\program files\\UE_4.25\\Engine\\Binaries\\Win64\\UE4Editor.exe",
 			"args": [
-				"D:\\lucifer games\\unreal\\Trapped\\Trapped.uproject"
+				"D:\\lucifer games\\unreal_games\\Trapped\\Trapped.uproject"
 			],
 			"cwd": "D:\\program files\\UE_4.25",
 			"stopAtEntry": false,
@@ -117,7 +117,7 @@
 			"args": [
 				"-projectfiles",
 				"-vscode",
-				"-project=\"D:\\lucifer games\\unreal\\Trapped\\Trapped.uproject\"",
+				"-project=\"D:\\lucifer games\\unreal_games\\Trapped\\Trapped.uproject\"",
 				"-game",
 				"-engine"
 			],

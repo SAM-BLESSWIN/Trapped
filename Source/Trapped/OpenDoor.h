@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Components/AudioComponent.h"
 #include "Components/ActorComponent.h"
 #include "Engine/TriggerVolume.h"
 #include "OpenDoor.generated.h"
@@ -13,7 +14,7 @@ class TRAPPED_API UOpenDoor : public UActorComponent
 {
 	GENERATED_BODY()
 
-
+	
 public:	
 	// Sets default values for this component's properties
 	UOpenDoor();
@@ -55,4 +56,10 @@ private:
 
 	UPROPERTY(EditAnywhere)
 	float DoorOpenMass=0.0f;
+
+	UPROPERTY()
+	UAudioComponent* DoorSound=nullptr;
+
+	bool OpenDoorSound;
+	bool CloseDoorSound;
 };

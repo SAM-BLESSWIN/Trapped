@@ -1,9 +1,10 @@
 {
 	"files.exclude": {
-		"D:/lucifer games/unreal/Trapped/.vscode": true,
-		"D:/lucifer games/unreal/Trapped/Content": true,
-		"D:/lucifer games/unreal/Trapped/DerivedDataCache": true,
-		"D:/lucifer games/unreal/Trapped/Intermediate": true,
-		"D:/lucifer games/unreal/Trapped/Saved": true
+		"D:/lucifer games/unreal_games/Trapped/.git": true,
+		"D:/lucifer games/unreal_games/Trapped/.vscode": true,
+		"D:/lucifer games/unreal_games/Trapped/Content": true,
+		"D:/lucifer games/unreal_games/Trapped/DerivedDataCache": true,
+		"D:/lucifer games/unreal_games/Trapped/Intermediate": true,
+		"D:/lucifer games/unreal_games/Trapped/Saved": true
 	}
 }

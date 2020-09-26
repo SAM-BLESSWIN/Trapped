@@ -1,11 +1,10 @@
 // Fill out your copyright notice in the Description page of Project Settings.
-
-
 #include "OpenDoor.h"
 #include "Components/PrimitiveComponent.h"
 #include "Engine/World.h"
 #include "GameFramework/PlayerController.h"
 #include "GameFramework/Actor.h"
+
 
 #define OUT
 
@@ -23,6 +22,9 @@ void UOpenDoor::BeginPlay()
 {
 	Super::BeginPlay();
 
+	OpenDoorSound=false;
+	CloseDoorSound=false;
+
 	InitialYaw=GetOwner()->GetActorRotation().Yaw;
 	CurrentYaw=InitialYaw;
 	TargetYaw+=CurrentYaw;
@@ -34,8 +36,14 @@ void UOpenDoor::BeginPlay()
 		FString Name=GetOwner()->GetName();
 		UE_LOG(LogTemp,Warning,TEXT("%s component with Pressure plate not initialized"),*Name);
 	}
-}
 
+	DoorSound=GetOwner()->FindComponentByClass<UAudioComponent>();
+	if(!DoorSound)
+	{
+		FString Name=GetOwner()->GetName();
+		UE_LOG(LogTemp,Warning,TEXT("%s Audio Component not initialized"),*Name);
+	}
+}
 
 // Called every frame
 void UOpenDoor::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
@@ -64,7 +72,14 @@ void UOpenDoor::OpenDoor(float DeltaTime)
 	DoorRotation.Yaw=CurrentYaw;
 
 	GetOwner()->SetActorRotation(DoorRotation);
+	if(!OpenDoorSound)
+	{
+		DoorSound->Play();
+		OpenDoorSound=true;;
+	}	
+	CloseDoorSound=false;
 }
+	
 
 void UOpenDoor::CloseDoor(float DeltaTime)
 {
@@ -74,6 +89,13 @@ void UOpenDoor::CloseDoor(float DeltaTime)
 	DoorRotation.Yaw=CurrentYaw;
 
 	GetOwner()->SetActorRotation(DoorRotation);
+
+	if(!CloseDoorSound)
+	{
+		DoorSound->Play();
+		CloseDoorSound=true;
+	}
+	OpenDoorSound=false;
 }
 	
 float UOpenDoor::GetTotalMass()
@@ -83,6 +105,7 @@ float UOpenDoor::GetTotalMass()
 	PressurePlate->GetOverlappingActors(OUT OverlappingActors);
 	for(AActor* Actor:OverlappingActors)
 	{
+		UE_LOG(LogTemp,Warning,TEXT("%s"),*(Actor->GetName()));
 		TotalMass+=Actor->FindComponentByClass<UPrimitiveComponent>()->GetMass();
 	}
 	UE_LOG(LogTemp,Warning,TEXT("%f"),TotalMass);
